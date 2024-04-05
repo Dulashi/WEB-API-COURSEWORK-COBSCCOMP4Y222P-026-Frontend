@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh;
+    height: 170vh;
     flex-direction: column;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .map-container {
-    position: relative; /* Ensure position relative for absolute positioning of markers */
+    position: relative; 
     max-width: 90%;
     max-height: 100vh;
     display: flex;
@@ -23,7 +23,7 @@
 }
 
 .district-marker {
-    position: absolute; /* Position relative to .map-container */
+    position: relative; 
     background-color: rgba(0, 0, 255, 0.5);
     border: 1px solid blue;
     border-radius: 50%;
@@ -35,14 +35,13 @@
     cursor: pointer;
 }
 
-
 .blue-bar {
     background-color: rgb(145, 193, 207);
     color: rgb(9, 9, 9);
     text-align: left;
     padding: 30px 0;
-    display: flex; /* Add display flex to align items in a row */
-    align-items: center; /* Center items vertically */
+    display: flex; 
+    align-items: center; 
 }
 
 .weather-map-heading {
@@ -52,10 +51,12 @@
 
 .rectangle {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
-    background-color: gray; /* Change color as needed */
-    text-align: center;
+    height: 400px; 
+    background-color: rgb(149, 145, 145); 
+    text-align: center; 
+    margin-top: -370px; 
 }
+
 
 .rectangle h2 {
     color: #333;
@@ -66,12 +67,17 @@
 }
 
 .government-logo {
-    max-width: 150px; /* Adjust the maximum width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Add some margin between the logo and the title */
+    max-width: 150px; 
+    height: auto; 
+    margin-right: 20px; 
 }
 
 .bar-image {
-    max-width: 100%; /* Adjust the maximum width as needed */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; 
+    height: auto; 
 }
+
+
+
+
+

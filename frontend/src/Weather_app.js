@@ -1,8 +1,11 @@
+// WeatherComponent.js
 import React, { useState, useEffect } from 'react';
 import './Weather_app.css';
+import DistrictPopup from './DistrictPopup';
 
 const WeatherComponent = () => {
     const [weatherData, setWeatherData] = useState(null);
+    const [selectedDistrict, setSelectedDistrict] = useState(null);
 
     useEffect(() => {
         const fetchWeatherData = async () => {
@@ -32,41 +35,42 @@ const WeatherComponent = () => {
             }
             const responseData = await response.json();
             console.log('Weather data for district', district, ':', responseData);
-            alert(`Weather data for ${district}: Temperature - ${responseData.temperature}, Humidity - ${responseData.humidity}, Air Pressure - ${responseData.airPressure}`);
+            setSelectedDistrict({ district, data: responseData });
         } catch (error) {
             console.error('Error fetching weather data for district:', district, ':', error);
         }
     };
     
+// Manually setting positions for each district though the districts names are taken from the backend
+const districtPositions = {
+    "Ampara": { x: 190, y: -250 },
+    "Anuradhapura": { x: -50, y: -470 },
+    "Badulla": { x: 80, y: -300},
+    "Batticaloa": { x: 150, y: -400 },
+    "Colombo": { x: -130, y: -250},
+    "Galle": { x:-80, y: -150 },
+    "Gampaha": { x: -130, y: -320 },
+    "Hambantota": { x: 80, y: -190},
+    "Jaffna": { x: -140, y: -830 },
+    "Kaluthara": { x: -110, y: -290 },
+    "Kandy": { x: -10, y: -430},
+    "Kegalle": { x: -70, y: -420 },
+    "Kilinochchi": { x: -100, y: -840},
+    "Kurunegala": { x: -90, y: -550 },
+    "Mannar": { x: -130, y: -780 },
+    "Matale": { x: -1, y: -570 },
+    "Matara": { x: -13, y: -330 },
+    "Monaragala": { x:130, y: -450},
+    "Mulllaitivu": { x: -60, y: -910 },
+    "Nuwara Eliya": { x: 30, y:-540 },
+    "Polonnaruwa": { x: 65, y: -730 },
+    "Puttalam": { x: -150, y: -770 },
+    "Ratnapura": { x: -20, y: -500 },
+    "Trincomalee": { x: 80, y: -840 },
+    "Vavuniya": { x: -45, y: -940 },   
+};
 
-    // Manually setting positions for each district though the districts names are taken from the backend
-    const districtPositions = {
-        "Ampara": { x: 300, y: 700 },
-        "Anuradhapura": { x: 800, y: 500 },
-        "Badulla": { x: 900, y: 720},
-        "Batticaloa": { x: 980, y: 600 },
-        "Colombo": { x: 700, y: 770 },
-        "Galle": { x: 780, y: 879 },
-        "Gampaha": { x: 700, y: 720 },
-        "Hambantota": { x: 900, y: 890},
-        "Jaffna": { x: 680, y: 270 },
-        "Kaluthara": { x: 730, y: 815 },
-        "Kandy": { x: 850, y: 700},
-        "Kegalle": { x: 760, y: 750 },
-        "Kilinochchi": { x: 720, y: 340 },
-        "Kurunegala": { x: 740, y: 670 },
-        "Mannar": { x: 700, y: 450 },
-        "Matale": { x: 840, y: 650 },
-        "Matara": { x: 820, y: 950 },
-        "Monaragala": { x: 970, y: 790},
-        "Mulllaitivu": { x: 800, y: 350 },
-        "Nuwara Eliya": { x: 850, y: 750 },
-        "Polonnaruwa": { x: 900, y: 590 },
-        "Puttalam": { x: 800, y: 900 },
-        "Ratnapura": { x: 800, y: 800 },
-        "Trincomalee": { x: 900, y: 440 },
-        "Vavuniya": { x: 780, y: 420 },   
-    };
+    
 
     return (
         <div>
@@ -96,6 +100,9 @@ const WeatherComponent = () => {
                     </div>
                 )}
             </div>
+            {selectedDistrict && (
+                <DistrictPopup district={selectedDistrict.district} data={selectedDistrict.data} />
+            )}
             <div className="rectangle">
                 <h2>CONTACT US</h2>
                 <p><strong>Address:</strong><br />Department of Meteorology<br />383, Bauddhaloka Mawatha,<br />Colombo 07<br />Sri Lanka</p>
@@ -106,7 +113,6 @@ const WeatherComponent = () => {
             </div>
         </div>
     );
-    
 };
 
 export default WeatherComponent;
