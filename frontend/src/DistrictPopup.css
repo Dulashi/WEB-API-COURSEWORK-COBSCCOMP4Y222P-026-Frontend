@@ -1,8 +1,8 @@
 
 .district-popup {
     position: absolute;
-    top: 600px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
+    top: 600px; 
+    left: 100px; 
     background-color: rgb(136, 231, 235);
     border: 1px solid black;
     padding: 10px;

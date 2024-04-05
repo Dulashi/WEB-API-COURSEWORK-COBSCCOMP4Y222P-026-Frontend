@@ -1,4 +1,3 @@
-// WeatherComponent.js
 import React, { useState, useEffect } from 'react';
 import './Weather_app.css';
 import DistrictPopup from './DistrictPopup';
