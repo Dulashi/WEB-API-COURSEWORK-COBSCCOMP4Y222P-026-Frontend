@@ -9,7 +9,7 @@ const WeatherComponent = () => {
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/weather/district');
+                const response = await fetch('https://erin-expensive-bull.cyclic.app/weather/district');
                 if (!response.ok) {
                     throw new Error('Failed to fetch weather data. Status: ' + response.status);
                 }
@@ -28,7 +28,7 @@ const WeatherComponent = () => {
 
     const handleDistrictClick = async (district) => {
         try {
-            const response = await fetch(`http://localhost:3000/weather/${district}`);
+            const response = await fetch(`https://erin-expensive-bull.cyclic.app/weather/${district}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch weather data for district: ' + district);
             }
