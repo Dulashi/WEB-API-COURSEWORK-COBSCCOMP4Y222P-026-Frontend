@@ -41,6 +41,7 @@ const WeatherComponent = () => {
     };
     
 // Manually setting positions for each district though the districts names are taken from the backend
+// This coded only to adjust the positions of the Districts on the map but all these names of the districts are not hardcoded and taken from the backend database
 const districtPositions = {
     "Ampara": { x: 190, y: -250 },
     "Anuradhapura": { x: -50, y: -470 },
